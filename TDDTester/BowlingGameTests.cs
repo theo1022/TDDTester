@@ -8,31 +8,35 @@ namespace TDDTester
 {
     public class BowlingGameTests
     {
+        private BowlingGame _game;
+
+        public BowlingGameTests()
+        {
+            _game = new BowlingGame();
+        }
+
         [Fact]
         public void TestGutterGame()
         {
-            BowlingGame game = new BowlingGame();
+            MakeRolls(20, 0);
 
-            for (int i = 0; i < 20; i++)
-            {
-                game.Roll(0);
-            }
-
-            Assert.Equal(0, game.Score());
+            Assert.Equal(0, _game.Score());
         }
 
         [Fact]
         public void TestAllOnes()
         {
-            BowlingGame game = new BowlingGame();
+            MakeRolls(20, 1);
+            
+            Assert.Equal(20, _game.Score());
+        }
 
-            for (int i = 0; i < 20; i++)
+        private void MakeRolls(int rounds, int pinsHitPerRoll)
+        {
+            for (int i = 0; i < rounds; i++)
             {
-                game.Roll(1);
+                _game.Roll(pinsHitPerRoll);
             }
-
-            Assert.Equal(20, game.Score());
-
         }
     }
 }
