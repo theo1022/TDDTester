@@ -52,12 +52,17 @@ namespace TDDTester
         [Fact]
         public void TestOneStrike()
         {
-            _game.Roll(10);//strike
+            RollStrike();
             _game.Roll(3);
             _game.Roll(4);
             RollMany(16, 0);
 
             Assert.Equal(24, _game.Score());
+        }
+
+        private void RollStrike()
+        {
+            _game.Roll(10);
         }
 
         private void RollSpare()
