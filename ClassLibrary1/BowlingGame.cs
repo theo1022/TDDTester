@@ -6,14 +6,15 @@ namespace ClassLibrary1
 {
     public class BowlingGame
     {
+        private int _score;
         public void Roll(int pins)
         {
-
+            _score += pins;
         }
 
         public int Score()
         {
-            return 0;
+            return _score;
         }
     }
 }
