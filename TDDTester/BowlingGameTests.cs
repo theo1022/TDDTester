@@ -20,5 +20,19 @@ namespace TDDTester
 
             Assert.Equal(0, game.Score());
         }
+
+        [Fact]
+        public void TestAllOnes()
+        {
+            BowlingGame game = new BowlingGame();
+
+            for (int i = 0; i < 20; i++)
+            {
+                game.Roll(1);
+            }
+
+            Assert.Equal(20, game.Score());
+
+        }
     }
 }
