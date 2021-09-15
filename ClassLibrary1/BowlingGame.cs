@@ -21,7 +21,12 @@ namespace ClassLibrary1
 
             for (int frame = 0; frame < 10; frame++)
             {
-                if (IsSpare(frameIndex))
+                if (Rolls[frameIndex] == 10)//strike
+                {
+                    score += 10 + Rolls[frameIndex + 1] + Rolls[frameIndex + 2];
+                    frameIndex++;//varför
+                }
+                else if (IsSpare(frameIndex))
                 {
                     score += 10 + Rolls[frameIndex + 2];
                     frameIndex += 2;
