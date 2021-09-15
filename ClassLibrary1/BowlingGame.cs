@@ -8,12 +8,12 @@ namespace ClassLibrary1
     {
         public void Roll(int pins)
         {
-            throw new NotImplementedException();
+
         }
 
         public int Score()
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }
