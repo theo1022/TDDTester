@@ -42,12 +42,17 @@ namespace TDDTester
         [Fact]
         public void TestOneSpare()
         {
-            _game.Roll(5);
-            _game.Roll(5);// spare
+            RollSpare();
             _game.Roll(3);
             RollMany(17, 0);
 
             Assert.Equal(16, _game.Score());
+        }
+
+        private void RollSpare()
+        {
+            _game.Roll(5);
+            _game.Roll(5);
         }
     }
 }
