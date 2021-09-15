@@ -38,5 +38,16 @@ namespace TDDTester
             
             Assert.Equal(20, _game.Score());
         }
+
+        [Fact]
+        public void TestOneSpare()
+        {
+            _game.Roll(5);
+            _game.Roll(5);// spare
+            _game.Roll(3);
+            RollMany(17, 0);
+
+            Assert.Equal(16, _game.Score());
+        }
     }
 }
