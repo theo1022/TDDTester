@@ -8,17 +8,25 @@ namespace TDDTester
 {
     public class BowlingGameTests
     {
-        private BowlingGame _game;
+        private BowlingGame _game;// heter g i powerpoint
 
         public BowlingGameTests()
         {
             _game = new BowlingGame();
         }
 
+        private void RollMany(int rounds, int pinsHitPerRoll)
+        {
+            for (int i = 0; i < rounds; i++)
+            {
+                _game.Roll(pinsHitPerRoll);
+            }
+        }
+
         [Fact]
         public void TestGutterGame()
         {
-            MakeRolls(20, 0);
+            RollMany(20, 0);
 
             Assert.Equal(0, _game.Score());
         }
@@ -26,17 +34,9 @@ namespace TDDTester
         [Fact]
         public void TestAllOnes()
         {
-            MakeRolls(20, 1);
+            RollMany(20, 1);
             
             Assert.Equal(20, _game.Score());
-        }
-
-        private void MakeRolls(int rounds, int pinsHitPerRoll)
-        {
-            for (int i = 0; i < rounds; i++)
-            {
-                _game.Roll(pinsHitPerRoll);
-            }
         }
     }
 }
