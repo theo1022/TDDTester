@@ -6,15 +6,34 @@ namespace ClassLibrary1
 {
     public class BowlingGame
     {
-        private int _score;
+        private int[] Rolls = new int[21];
+        private int _currentRoll;
+
         public void Roll(int pins)
         {
-            _score += pins;
+            Rolls[_currentRoll++] = pins;
         }
 
         public int Score()
         {
-            return _score;
+            int score = 0;
+            int i = 0;
+
+            for (int frame = 0; frame < 10; frame++)
+            {
+                if (Rolls[i] + Rolls[i + 1] == 10)// spare
+                {
+                    score += 10 + Rolls[i + 2];
+                    i += 2;
+                }
+                else
+                {
+                    score += Rolls[i] + Rolls[i + 1];
+                    i += 2;
+                }
+            }
+
+            return score;
         }
     }
 }

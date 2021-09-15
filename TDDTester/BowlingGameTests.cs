@@ -38,7 +38,7 @@ namespace TDDTester
             
             Assert.Equal(20, _game.Score());
         }
-
+        
         [Fact]
         public void TestOneSpare()
         {
